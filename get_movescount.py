@@ -63,6 +63,8 @@ def get_overview(session):
         url = data['objects'][-1]['url']
 
     df_moves = pd.DataFrame(moves)
+    df_moves['LocalStartTime'] = pd.to_datetime(df_moves['LocalStartTime'])
+    df_moves['UTCStartTime'] = pd.to_datetime(df_moves['UTCStartTime'])
 
     return df_moves
 
